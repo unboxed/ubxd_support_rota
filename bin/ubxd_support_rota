@@ -6,4 +6,6 @@ $:.unshift(lib_dir) unless
 
 require 'ubxd_support_rota'
 
-puts UBXDSupportRota::SupportRota.hello_world
+yaml_file = File.expand_path(File.join(File.dirname(__FILE__), "..", "data", "support_rota.yml"))
+support_rota = UBXDSupportRota::SupportRota.create_from_yaml_file(yaml_file)
+puts support_rota.to_s(:wiki)
